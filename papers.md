@@ -20,7 +20,7 @@
             <td>
                 <ul>
                     <li>DTs' <em>predict proba</em> is just the raw training frequency of final leaf. That's not reliable: 
-                        <ol>
+                        <ol type=1>
                             <li>such frequencies are usually shifted towards 0 or 1 since DTs strive to have homogeneous leaves;</li>
                             <li>without pruning, leaf «capacity» can be small</li>
                         </ol></li>

@@ -3,7 +3,7 @@
 ## 5 семестр ВМК МГУ
 
 - [x] [Обзор методов калибровки](https://dyakonov.org/2020/03/27/проблема-калибровки-уверенности/) + лекция `27.09.20`
-- [x] [Исходная статья](https://cseweb.ucsd.edu/~elkan/calibrated.pdf) о биннинге. Начал вести [таблицу](https://github.com/artnitolog/diary/papers.md) `02.10.20`
+- [x] [Исходная статья](https://cseweb.ucsd.edu/~elkan/calibrated.pdf) о биннинге. Начал вести [таблицу](https://github.com/artnitolog/diary/blob/master/papers.md) `02.10.20`
 
 ### *(Вы находитесь здесь)*
 

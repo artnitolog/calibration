@@ -20,13 +20,29 @@
             <td>
                 <ul>
                     <li>DTs' <em>predict proba</em> is just the raw training frequency of final leaf. That's not reliable: 
-                        <ol type=1>
+                        <ol>
                             <li>such frequencies are usually shifted towards 0 or 1 since DTs strive to have homogeneous leaves;</li>
                             <li>without pruning, leaf «capacity» can be small</li>
                         </ol></li>
                     <li>Standard DT pruning (maximizing accuracy) methods do not improve quality of probability estimation</li>
                 </ul>
             </td>
+        </tr>
+        <tr>
+            <td>
+                J. Platt. <a href=http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.41.1639>«Probabilistic outputs for support vector machines and comparison to regularized likelihood method»</a>, 2000
+            </td>
+            <td><ul>
+                <li>The general idea of getting conditional probabilities of classes is to make post-processing step: algorithm outputs (margins) are transformed with fitted sigmoid (2 parameters)</li>
+                <li>Parameters can be found with MLE. The issues are the choice of calibration set and the method to avoid overfitting</li>
+                <li>Using the same set (whole train) to fit the sigmoid can give extremely biased fits, so special hold-out set is preferred (cross-validation will also give a lower variance estimate for sigmoid parameters)</li>
+                <li>Overfitting of sigmoid is still possible. Suggested methods:
+                    <ol>
+                        <li>Regularization (requires a prior model for parameters)</li>
+                        <li>Using smoothed targets (for MAP estimates) instead of {0, 1}</li>
+                    </ol>
+                </li>
+            </ul></td>
         </tr>
     </tbody>
 </table>

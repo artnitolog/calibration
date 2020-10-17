@@ -11,3 +11,4 @@
   - [ ] https://arxiv.org/abs/2002.09437
 - [ ] Когда данных мало https://arxiv.org/abs/2002.10199
 - [ ] https://arxiv.org/abs/1809.10877
+- [ ] https://papers.nips.cc/paper/1719-the-relevance-vector-machine.pdf

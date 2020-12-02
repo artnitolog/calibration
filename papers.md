@@ -1,3 +1,4 @@
+<!-- python -m readme2tex --output papers.md --nocdn --rerender papers_raw.md -->
 # Конспекты статей
 
 ## Chuan Guo, Geoff Pleiss, [«On Calibration of Modern Neural Networks»](https://arxiv.org/abs/1706.04599), 2017
@@ -21,7 +22,7 @@ Authors explain basic concepts of calibration and compare different methods on r
   3. <img src="svgs/ef940ac77fe806cf4796555c1ce34ec8.svg?invert_in_darkmode" align=middle width=201.48301139999998pt height=27.77565449999998pt/> — average confidence.
 * Miscalibration measure is <img src="svgs/f98a3592cffdb3dd2e7f50c42924b3af.svg?invert_in_darkmode" align=middle width=172.99546109999997pt height=24.65753399999998pt/>. To estimate this value, ECE (expected calibration error) is used:
 <p align="center"><img src="svgs/c97deb0f19c4075d0aee735622ae162e.svg?invert_in_darkmode" align=middle width=286.48078964999996pt height=57.32419935pt/></p>
-* Sometimes we may wish to estimate only worst-case deviation (expectation is replaced with <img src="svgs/e03dada8156937860849f8c11156f67c.svg?invert_in_darkmode" align=middle width=30.59372579999999pt height=14.15524440000002pt/>). Approximation is MCE (maximum calibration error) — like ECE, but sum is replaced with <img src="svgs/e03dada8156937860849f8c11156f67c.svg?invert_in_darkmode" align=middle width=30.59372579999999pt height=14.15524440000002pt/>.
+* Sometimes we may wish to estimate only worst-case deviation (expectation is replaced with max). Approximation is MCE (maximum calibration error) — like ECE, but sum is replaced with max.
 * Also NLL (negative log likelihood) as a standard measure of a probabilistic model’s quality can be used to estimate calibration.
 
 ### Reasons of miscalibration

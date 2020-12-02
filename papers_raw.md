@@ -1,4 +1,4 @@
-<!-- python -m readme2tex --output test_output.md --nocdn --rerender papers_raw.md -->
+<!-- python -m readme2tex --output papers.md --nocdn --rerender papers_raw.md -->
 # Конспекты статей
 
 ## Chuan Guo, Geoff Pleiss, [«On Calibration of Modern Neural Networks»](https://arxiv.org/abs/1706.04599), 2017

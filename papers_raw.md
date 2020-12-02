@@ -1,3 +1,4 @@
+<!-- python -m readme2tex --output test_output.md --nocdn --rerender papers_raw.md -->
 # Конспекты статей
 
 ## Chuan Guo, Geoff Pleiss, [«On Calibration of Modern Neural Networks»](https://arxiv.org/abs/1706.04599), 2017
@@ -14,14 +15,15 @@ Authors explain basic concepts of calibration and compare different methods on r
 
 ### How to estimate (mis)calibration
 
-* Perfect calibration: <img src="https://github.com/artnitolog/diary/tree/master/svgs/569c727a90a160ff5022fd05071d0751.svg?invert_in_darkmode" align=middle width=241.2473019pt height=24.65753399999998pt/>.
+* Perfect calibration: $\mathbb{P} \left(\widehat{y}=y\mid\widehat{p}=p\right)=p,\quad \forall p\in\left[0,1\right]$.
 * Reliability histogram — accuracy as a function of confidence.
-  1. We split confidences <img src="https://github.com/artnitolog/diary/tree/master/svgs/c01869f50281dbe87e64a3206b052bf7.svg?invert_in_darkmode" align=middle width=68.57101349999999pt height=23.744328300000017pt/> into bins (by size or length) <img src="https://github.com/artnitolog/diary/tree/master/svgs/7491fc5ae8253196bdf656ddd60cb334.svg?invert_in_darkmode" align=middle width=82.6106358pt height=22.465723500000017pt/>.
-  2. <img src="https://github.com/artnitolog/diary/tree/master/svgs/fc20ba32921a145829af36aad7be648b.svg?invert_in_darkmode" align=middle width=238.5481461pt height=27.77565449999998pt/> (unbiased and consistent estimator of <img src="https://github.com/artnitolog/diary/tree/master/svgs/81b07d48a321802b94e1f9aa77bab597.svg?invert_in_darkmode" align=middle width=131.8023366pt height=24.65753399999998pt/>).
-  3. <img src="https://github.com/artnitolog/diary/tree/master/svgs/ef940ac77fe806cf4796555c1ce34ec8.svg?invert_in_darkmode" align=middle width=201.48301139999998pt height=27.77565449999998pt/> — average confidence.
-* Miscalibration measure is <img src="https://github.com/artnitolog/diary/tree/master/svgs/f98a3592cffdb3dd2e7f50c42924b3af.svg?invert_in_darkmode" align=middle width=172.99546109999997pt height=24.65753399999998pt/>. To estimate this value, ECE (expected calibration error) is used:
-<p align="center"><img src="https://github.com/artnitolog/diary/tree/master/svgs/c97deb0f19c4075d0aee735622ae162e.svg?invert_in_darkmode" align=middle width=286.48078964999996pt height=57.32419935pt/></p>
-* Sometimes we may wish to estimate only worst-case deviation (expectation is replaced with <img src="https://github.com/artnitolog/diary/tree/master/svgs/e03dada8156937860849f8c11156f67c.svg?invert_in_darkmode" align=middle width=30.59372579999999pt height=14.15524440000002pt/>). Approximation is MCE (maximum calibration error) — like ECE, but sum is replaced with <img src="https://github.com/artnitolog/diary/tree/master/svgs/e03dada8156937860849f8c11156f67c.svg?invert_in_darkmode" align=middle width=30.59372579999999pt height=14.15524440000002pt/>.
+  1. We split confidences $\widehat{p}_1,\dots,\widehat{p}_n$ into bins (by size or length) $B_1,\dots,B_M$.
+  2. $\operatorname{acc}(B_m)=\frac{1}{|B_m|}\sum_{\widehat{p}_i\in B_m}\left[\widehat{y}_i=y_i\right]$ (unbiased and consistent estimator of $\mathbb{P} \left(\widehat{y}=y\mid\widehat{p}\in B_m\right)$).
+  3. $\operatorname{conf}(B_m)=\frac{1}{|B_m|}\sum_{\widehat{p}_i\in B_m}{p}_i$ — average confidence.
+* Miscalibration measure is $\mathbb{E}_{\widehat{p}}\lvert\mathbb{P} \left(\widehat{y}=y\mid\widehat{p}=p\right)-p\rvert$. To estimate this value, ECE (expected calibration error) is used:
+$$\operatorname{ECE}=\sum_{m=1}^{M}\frac{|B_m|}{n}
+\underbrace{\lvert \operatorname{acc}(B_m)-\operatorname{conf}(B_m)\rvert}_\text{gap in reliability diargram}$$
+* Sometimes we may wish to estimate only worst-case deviation (expectation is replaced with $\max$). Approximation is MCE (maximum calibration error) — like ECE, but sum is replaced with $\max$.
 * Also NLL (negative log likelihood) as a standard measure of a probabilistic model’s quality can be used to estimate calibration.
 
 ### Reasons of miscalibration

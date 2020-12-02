@@ -1,10 +1,10 @@
 #### Ноутбуки
 
+- [x] примеры в sklearn'е https://scikit-learn.org/stable/auto_examples/calibration/plot_compare_calibration.html, https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_multiclass.html
 - [ ] https://kaggle.com/residentmario/notes-on-classification-probability-calibration
-- [ ] примеры в sklearn'е https://scikit-learn.org/stable/auto_examples/calibration/plot_compare_calibration.html, https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_multiclass.html и др. - для начала повторить
 
 #### Статьи
-
+- [ ] https://papers.nips.cc/paper/8635-verified-uncertainty-calibration.pdf
 - [ ] сглаживание меток в нейросетях https://arxiv.org/pdf/1906.02629.pdf
 - [ ] Focal Loss
   - [ ] https://arxiv.org/abs/1708.02002

@@ -1,6 +1,24 @@
 <!-- python -m readme2tex --output papers.md --nocdn --rerender papers_raw.md -->
 # Конспекты статей
 
+## R. Müller, S. Kornblith, G. Hinton [When Does Label Smoothing Help?](https://arxiv.org/pdf/1906.02629.pdf), 2019
+
+> **General idea (introduced in [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/pdf/1512.00567.pdf))**: replace the hard (true) targets <img src="svgs/6217c8bb52c9d9f0adb29e37b52dad41.svg?invert_in_darkmode" align=middle width=15.325460699999988pt height=14.15524440000002pt/> in standard cross-entropy
+> <p align="center"><img src="svgs/032ff852483955403ffd57c74bc1cb26.svg?invert_in_darkmode" align=middle width=174.499578pt height=48.18280005pt/></p>
+> with smoothed (mixture) <img src="svgs/dc9d70b51a74e96eb2a41ecb9accb79a.svg?invert_in_darkmode" align=middle width=153.22870364999997pt height=24.7161288pt/>. The prior distribution over labels <img src="svgs/43f85be4d399d755291f3fbc15bb1db3.svg?invert_in_darkmode" align=middle width=16.67630249999999pt height=14.15524440000002pt/> is now taken uniform: <img src="svgs/a783edab9a82253acf61fa1f0dcf72d9.svg?invert_in_darkmode" align=middle width=53.240112749999994pt height=27.77565449999998pt/>. This regularization mechanism was called LSR (label-smoothing regularization).
+The final loss:
+> <p align="center"><img src="svgs/e33de40a1910464cfaf85b9ea3368ef2.svg?invert_in_darkmode" align=middle width=489.86565375000004pt height=48.18280005pt/></p>
+> **So what?** The model is encouraged to be less confident. LSR prevent the largest logit from becoming much larger than the other. In fact, we reduce overfitting.
+
+In the [paper]((https://arxiv.org/pdf/1906.02629.pdf)), the authors explain why this trick works on model calibration (and against distillation).
+
+> Intuitively, <img src="svgs/97549fbd61ee3133a20edbe3fc217816.svg?invert_in_darkmode" align=middle width=259.13704905pt height=27.6567522pt/>, so each class has a template <img src="svgs/61046e5eadc702c4e6063bccd2508c6f.svg?invert_in_darkmode" align=middle width=19.03453859999999pt height=14.15524440000002pt/>; <img src="svgs/56c25d5a3ffb084ecbe3bbb320a4efc7.svg?invert_in_darkmode" align=middle width=32.38595414999999pt height=26.76175259999998pt/> does not depend on the class, <img src="svgs/563e233a6a64ccb2a677b3ba49b42a6b.svg?invert_in_darkmode" align=middle width=42.84741779999999pt height=26.76175259999998pt/> is usually constant across classes. So the logit <img src="svgs/6669d9c00a615559bfcae4a4e57aadd0.svg?invert_in_darkmode" align=middle width=38.78511779999999pt height=27.6567522pt/> can be thought of as a measure of distance between the penultimate layer and a template.
+
+**Insight**: label smoothing encourages the activations <img src="svgs/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode" align=middle width=9.39498779999999pt height=14.15524440000002pt/> of the penultimate layer to be close to the template of the correct class <img src="svgs/61046e5eadc702c4e6063bccd2508c6f.svg?invert_in_darkmode" align=middle width=19.03453859999999pt height=14.15524440000002pt/> and equally distant to the templates of the incorrect class. This property is observed in authors' visualizations on the datasets CIFAR-10, CIFAR-100 and ImageNet with the architectures AlexNet, ResNet-56 and Inception-v4.
+
+**Label smoothing prevents over-confidence. But does it improve the calibration of the model?**
+The authors show that label smoothing reduces ECE and can be effective even without temperature scaling.
+
 ## Chuan Guo, Geoff Pleiss, [«On Calibration of Modern Neural Networks»](https://arxiv.org/abs/1706.04599), 2017
 
 Authors explain basic concepts of calibration and compare different methods on real models and datasets. The main result is coolness of temperature scaling in all respects.
@@ -22,6 +40,7 @@ Authors explain basic concepts of calibration and compare different methods on r
   3. <img src="svgs/ef940ac77fe806cf4796555c1ce34ec8.svg?invert_in_darkmode" align=middle width=201.48301139999998pt height=27.77565449999998pt/> — average confidence.
 * Miscalibration measure is <img src="svgs/f98a3592cffdb3dd2e7f50c42924b3af.svg?invert_in_darkmode" align=middle width=172.99546109999997pt height=24.65753399999998pt/>. To estimate this value, ECE (expected calibration error) is used:
 <p align="center"><img src="svgs/c97deb0f19c4075d0aee735622ae162e.svg?invert_in_darkmode" align=middle width=286.48078964999996pt height=57.32419935pt/></p>
+
 * Sometimes we may wish to estimate only worst-case deviation (expectation is replaced with max). Approximation is MCE (maximum calibration error) — like ECE, but sum is replaced with max.
 * Also NLL (negative log likelihood) as a standard measure of a probabilistic model’s quality can be used to estimate calibration.
 

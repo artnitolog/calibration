@@ -6,14 +6,14 @@
 > **General idea (introduced in [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/pdf/1512.00567.pdf))**: replace the hard (true) targets $y_k$ in standard cross-entropy
 > $$H(y, p) =-\sum_{k=1}^K y_k \log{p_k}$$
 > with smoothed (mixture) $y_k^\prime = (1-\alpha)y_k +\alpha u_k$. The prior distribution over labels $u_k$ is now taken uniform: $u_k = \frac{1}{K}$. This regularization mechanism was called LSR (label-smoothing regularization).
-The final loss:
+> The final loss:
 > $$H(y^\prime,p)=-\sum_{k=1}^K ( (1-\alpha)y_k +\frac{\alpha}{K})\log{p_k} \\
 =(1-\alpha)H(y, p)+\alpha H(u, p)$$
 > **So what?** The model is encouraged to be less confident. LSR prevent the largest logit from becoming much larger than the other. In fact, we reduce overfitting.
 
 In the [paper]((https://arxiv.org/pdf/1906.02629.pdf)), the authors explain why this trick works on model calibration (and against distillation).
 
-> Intuitively, $\lVert x-w_k\rVert^2 = \lVert x \rVert ^2 + \lVert w_k \rVert ^2- 2x^T w_k$, so each class has a template $w_k$; $\lVert x \rVert ^2$ does not depend on the class, $\lVert w_k \rVert ^2$ is usually constant across classes. So the logit $x^T w_k$ can be thought of as a measure of distance between the penultimate layer and a template.
+Intuitively, $\lVert x-w_k\rVert^2 = \lVert x \rVert ^2 + \lVert w_k \rVert ^2- 2x^T w_k$, so each class has a template $w_k$; $\lVert x \rVert ^2$ does not depend on the class, $\lVert w_k \rVert ^2$ is usually constant across classes. So the logit $x^T w_k$ can be thought of as a measure of distance between the penultimate layer and a template.
 
 **Insight**: label smoothing encourages the activations $x$ of the penultimate layer to be close to the template of the correct class $w_k$ and equally distant to the templates of the incorrect class. This property is observed in authors' visualizations on the datasets CIFAR-10, CIFAR-100 and ImageNet with the architectures AlexNet, ResNet-56 and Inception-v4.
 

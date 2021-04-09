@@ -4,7 +4,7 @@
 
 #### Статьи
 - [ ] https://papers.nips.cc/paper/8635-verified-uncertainty-calibration.pdf, https://arxiv.org/abs/1909.10155, https://github.com/p-lambda/verified_calibration
-- [ ] сглаживание меток в нейросетях https://arxiv.org/pdf/1906.02629.pdf
+- [x] сглаживание меток в нейросетях https://arxiv.org/pdf/1906.02629.pdf
 - [ ] Focal Loss
   - [ ] https://arxiv.org/abs/1708.02002
   - [ ] https://arxiv.org/abs/2002.09437

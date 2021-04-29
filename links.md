@@ -19,3 +19,34 @@
 Почти всегда это температурное шкалирование:
 - [ ] Снова мини-конспект оО: https://geoffpleiss.com/nn_calibration
 - [ ] https://medium.com/@sourajit16.02.93/neural-network-calibration-46997f8c872c
+
+# Papers
+
+# Blogs
+
+
+# Calibration-related githubs
+
+### Paper lists
+#### One https://github.com/huangsg1/uncertainty-calibration 
+#### Two :) https://github.com/uncertainty-toolbox/uncertainty-toolbox/blob/master/docs/paper_list.md
+
+### Implementations
+#### Metrics, visualization https://github.com/uncertainty-toolbox/uncertainty-toolbox
+
+### Tutorials
+#### https://github.com/nplan-io/kdd2020-calibration
+
+### Accompanying papers (more specific)
+#### https://github.com/p-lambda/verified_calibration
+#### https://github.com/IntelLabs/AVUC
+#### https://github.com/AxelJanRousseau/PostTrainCalibration
+#### https://github.com/hendrycks/pre-training
+#### https://github.com/kyosek/Probability-Calibration-Imbalanced
+#### https://github.com/mematt/ml4calibrated450k
+#### https://github.com/zhang64-llnl/Mix-n-Match-Calibration
+#### https://github.com/uu-sml/calibration
+
+### Ideas
+#### https://github.com/dataflowr/Project-calibration-temperature_scaling
+#### https://github.com/google-research/robustness_metrics-->

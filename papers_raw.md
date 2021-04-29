@@ -1,6 +1,20 @@
 <!-- python -m readme2tex --output papers.md --nocdn --rerender papers_raw.md -->
 # Конспекты статей
 
+
+why to use logistic transform all the time? the curve may be skewed etc
+
+## Niculescu-Mizil, A., & Caruana, R. [Predicting good probabilities with supervised learning](https://sci-hub.do/10.1145/1102351.1102430), 2005
+* Authors compare (mis)calibration of popular ML algorithms (tree-based, naive bayes, logregression, and SVM)
+* Distribution of probability estimates: bell-shaped (boosted tree-based, SVM) vs U-shaped (NB, RF, logistic).
+* Tendencies in reliability plots: sigmoid-shaped (SVM, trees) —    underconfidence, «inverse sigmoid»-shaped (NB) — overconfidence
+  * Symmetric unimodal shape is typical for max-margin methods like SVM or boosted trees — mass is in the center. In case of imbalanced classes the situation is different...
+  * In NB peaks of U are at 0 and 1 because of unrealistic assumtion (conditional independance of features given class)
+  * In RF peaks of U are slightly pushed from 0 and 1 due to high variance of individual trees
+  * In logistic regression (and other models afrer calibration) the distibution is U-shaped with peaks close to 0 and 1
+* 2 calibration methods are used: Platt scaling & isotonic regression. Platt scaling is good when calibration curve is sigmoidal (like in SVM) or size of 
+* In fact, all sklearn examples on calibration exploit only this paper
+
 ## R. Müller, S. Kornblith, G. Hinton [When Does Label Smoothing Help?](https://arxiv.org/pdf/1906.02629.pdf), 2019
 
 > **General idea (introduced in [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/pdf/1512.00567.pdf))**: replace the hard (true) targets $y_k$ in standard cross-entropy

@@ -1,3 +1,4 @@
+old: 
 #### Ноутбуки
 
 - [ ] https://kaggle.com/residentmario/notes-on-classification-probability-calibration
@@ -33,6 +34,8 @@
 
 ### Implementations
 #### Metrics, visualization https://github.com/uncertainty-toolbox/uncertainty-toolbox
+#### https://github.com/markus93/NN_calibration
+
 
 ### Tutorials
 #### https://github.com/nplan-io/kdd2020-calibration
@@ -46,7 +49,9 @@
 #### https://github.com/mematt/ml4calibrated450k
 #### https://github.com/zhang64-llnl/Mix-n-Match-Calibration
 #### https://github.com/uu-sml/calibration
+#### https://github.com/dirichletcal/dirichletcal.github.io
+#### https://github.com/mlaves/bayesian-temperature-scaling
 
 ### Ideas
 #### https://github.com/dataflowr/Project-calibration-temperature_scaling
-#### https://github.com/google-research/robustness_metrics-->
+#### https://github.com/google-research/robustness_metrics

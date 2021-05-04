@@ -1,7 +1,5 @@
-other/details.md
 cw_paper/*
 !cw_paper/main.pdf
-!cw_paper/main.tex
-!cw_paper/tabs/*
-!cw_paper/vis/*
-!cw_paper/bib/*
+!cw_paper/tabs
+!cw_paper/vis
+other/details.md

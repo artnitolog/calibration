@@ -21,10 +21,6 @@ old:
 - [ ] Снова мини-конспект оО: https://geoffpleiss.com/nn_calibration
 - [ ] https://medium.com/@sourajit16.02.93/neural-network-calibration-46997f8c872c
 
-# Papers
-
-# Blogs
-
 
 # Calibration-related githubs
 

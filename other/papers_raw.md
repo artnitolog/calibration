@@ -2,8 +2,6 @@
 # Конспекты статей
 
 
-why to use logistic transform all the time? the curve may be skewed etc
-
 ## Niculescu-Mizil, A., & Caruana, R. [Predicting good probabilities with supervised learning](https://sci-hub.do/10.1145/1102351.1102430), 2005
 * Authors compare (mis)calibration of popular ML algorithms (tree-based, naive bayes, logregression, and SVM)
 * Distribution of probability estimates: bell-shaped (boosted tree-based, SVM) vs U-shaped (NB, RF, logistic).

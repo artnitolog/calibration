@@ -1,5 +1,8 @@
+import numpy as np
 from functools import partial
 from sklearn.isotonic import IsotonicRegression
+from ..utils import bins_reliability_binary
+
 
 class HistogramBinningBinary:
     def __init__(self, n_bins=10):
@@ -16,12 +19,10 @@ class HistogramBinningBinary:
         '''
         _, thetas, weights = bins_reliability_binary(y_true, y_confs,
                                                      n_bins=self.n_bins)
-#         in case bin is empty, the probability won't be changed
-        thetas[weights == 0] = -1
-#         in case bin is empty, replace confidence with bin center
-#         centers = ((self.bins[:-1] + self.bins[1:]) * 0.5)
-#         thetas[weights == 0] = centers[weights == 0]
+        centers = ((self.bins[:-1] + self.bins[1:]) * 0.5)
+        thetas[weights == 0] = centers[weights == 0]
         self.thetas = thetas
+        return self
     
     def transform(self, y_confs):
         '''
@@ -31,17 +32,17 @@ class HistogramBinningBinary:
             y_confs_calib: calibrated probabilities
         '''
         y_confs_calib = self.thetas[np.digitize(y_confs, self.bins) - 1]
-        empty_bins = (y_confs_calib < 0)
-        y_confs_calib[empty_bins] = y_confs[empty_bins]
         return y_confs_calib
 
-class IRBinary(IsotonicRegression):
+
+class IsotonicRegressionBinary(IsotonicRegression):
     '''
     Isotonic regression wrapper for binary calibration.
     '''
     def __init__(self):
         super().__init__(increasing=True, out_of_bounds='clip',
                          y_min=0.0, y_max=1.0)
+
 
 class CalibratorOvR:
     def __init__(self, base, **kwargs):
@@ -64,6 +65,7 @@ class CalibratorOvR:
             calibrator = self.base()
             calibrator.fit(confs[:, class_], (true_classes == class_).astype(int))
             self.ovr_calibrators.append(calibrator)
+        return self
     
     def transform(self, confs):
         '''
@@ -77,11 +79,13 @@ class CalibratorOvR:
         cal_confs /= cal_confs.sum(axis=1, keepdims=True)
         return cal_confs
 
+
 class HistogramBinningMulticlass(CalibratorOvR):
     def __init__(self, n_bins=15):
         super().__init__(HistogramBinningBinary, n_bins=n_bins)
 
+
 class IsotonicRegressionMulticlass(CalibratorOvR):
     def __init__(self):
-        super().__init__(IRBinary)
+        super().__init__(IsotonicRegressionBinary)
 

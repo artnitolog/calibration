@@ -25,7 +25,7 @@
 @article{nmt_google,
   title={Google's neural machine translation system: Bridging the gap between human and machine translation},
   author={Wu, Yonghui and Schuster, Mike and Chen, Zhifeng and Le, Quoc V and Norouzi, Mohammad and Macherey, Wolfgang and Krikun, Maxim and Cao, Yuan and Gao, Qin and Macherey, Klaus and others},
-  journal={arXiv preprint arXiv:1609.08144},
+  journal={arXiv preprint: 1609.08144},
   year={2016}
 }
 
@@ -101,10 +101,10 @@
 % NEWER PAPERS
 
 @inproceedings{verified_uncertainty,
-  title={Verified uncertainty calibration},
-  author={Kumar, Ananya and Liang, Percy and Ma, Tengyu},
-  journal={arXiv preprint arXiv:1909.10155},
-  year={2019}
+  author = {Ananya Kumar and Percy Liang and Tengyu Ma},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  title = {Verified Uncertainty Calibration},
+  year = {2019},
 }
 
 @inproceedings{on_cal,
@@ -117,10 +117,13 @@
 }
 
 @inproceedings{dirichlet,
-  title={Beyond temperature scaling: Obtaining well-calibrated multiclass probabilities with Dirichlet calibration},
-  author={Kull, Meelis and Perello-Nieto, Miquel and K{\"a}ngsepp, Markus and Song, Hao and Flach, Peter and others},
-  journal={arXiv preprint arXiv:1910.12656},
-  year={2019}
+ author = {Kull, Meelis and Perello Nieto, Miquel and K\"{a}ngsepp, Markus and Silva Filho, Telmo and Song, Hao and Flach, Peter},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {H. Wallach and H. Larochelle and A. Beygelzimer and F. d\textquotesingle Alch\'{e}-Buc and E. Fox and R. Garnett},
+ publisher = {Curran Associates, Inc.},
+ title = {Beyond temperature scaling: Obtaining well-calibrated multi-class probabilities with Dirichlet calibration},
+ volume = {32},
+ year = {2019}
 }
 
 @conference{bayesian_ece,
@@ -132,19 +135,17 @@
   year={2015}
 }
 
-@misc{ace,
-  title={Measuring Calibration in Deep Learning.},
-  author={Nixon, Jeremy and Dusenberry, Michael W and Zhang, Linchuan and Jerfel, Ghassen and Tran, Dustin},
-  booktitle={CVPR Workshops},
-  volume={2},
-  number={7},
-  year={2019}
+@article{ace,
+  title={Measuring Calibration in Deep Learning}, 
+  author={Jeremy Nixon and Mike Dusenberry and Ghassen Jerfel and Timothy Nguyen and Jeremiah Liu and Linchuan Zhang and Dustin Tran},
+  year={2020},
+  journal={arXiv preprint: 1904.01685},
 }
 
 @inproceedings{smoothing,
   title={When does label smoothing help?},
   author={M{\"u}ller, Rafael and Kornblith, Simon and Hinton, Geoffrey},
-  journal={arXiv preprint arXiv:1906.02629},
+  journal={arXiv preprint: 1906.02629},
   year={2019}
 }
 
@@ -215,12 +216,15 @@
 }
 
 @misc{focal_github,
+  title = {Code for \cite{focal_calib}},
   author = {Jishnu Mukhoti and Viveka Kulharia},
+  journal = {GitHub repository},
   url = {https://github.com/torrvision/focal_calibration}
 }
 
 @misc{my_repo,
   author = {Ruslan Vasilev},
   title = {Calibration (accompanying repository)},
+  journal = {GitHub repository},
   url = {https://github.com/artnitolog/calibration}
 }

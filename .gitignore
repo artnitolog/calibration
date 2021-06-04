@@ -1,6 +1,0 @@
-cw_paper/*
-!cw_paper/vis
-!cw_paper/tabs
-!cw_paper/*.pdf
-!cw_paper/*.bib
-!cw_paper/*.tex

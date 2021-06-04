@@ -1,0 +1,34 @@
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\newcommand{\tbc}{<\dots>}
+
+\newcommand{\softmax}{\operatorname{\sigma}}
+\newcommand{\argmax}{\operatorname{argmax}}
+\newcommand{\NN}{\operatorname{NN}}
+
+\newcommand{\ece}{\operatorname{ECE}}
+\newcommand{\mce}{\operatorname{MCE}}
+\newcommand{\cwece}{\operatorname{cwECE}}
+\renewcommand{\nll}{\operatorname{NLL}}
+\newcommand{\bs}{\operatorname{BS}}
+
+\newcommand{\mpl}[2]{
+    \begin{figure}[!h]
+        \includegraphics[width=\textwidth]{#1}
+        \centering
+        \caption{#2}
+        \label{fig:#1}
+     \end{figure}
+}
+
+% group, number, label, caption
+\newcommand{\addrel}[3]{
+    \begin{figure}[!h]
+        \includegraphics[page=#2,width=\textwidth]{ReliabilityDiagrams_group_#1}
+        \centering
+        \caption{#3}
+        \label{fig:reldiag_#1_#2}
+    \end{figure}
+}
+
+\newcommand{\engterm}[1]{\textbf{#1}}

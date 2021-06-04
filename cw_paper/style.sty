@@ -1,0 +1,91 @@
+
+% Кодировка
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Русский язык
+\usepackage[english, russian]{babel}
+
+% Шрифты
+\usepackage[sups]{XCharter}
+\usepackage[vvarbb, uprightscript, charter, scaled=1.05]{newtxmath}
+
+% Тематически не промоделировано
+\usepackage{indentfirst}  % отступ в первом абзаце
+\usepackage{graphicx}  % графики и картинки
+\usepackage{enumitem}  % красивые списки
+\usepackage{verbatim}  % вставки кода
+\usepackage{microtype}  % улучшение выравнивания
+\usepackage[table,xcdraw]{xcolor}  % цветной текст
+\usepackage{hyperref}  % гиперссылки
+\usepackage{geometry}  % разметка страницы
+\usepackage{tocloft}  % форматирование оглавления
+\usepackage{booktabs}  % таблички
+\usepackage{csquotes}  % кавычки :)
+\usepackage[justification=centering, font=it]{caption}  % подписи к штукам
+\usepackage[toc,page]{appendix}  % приложения
+
+
+% Настройки
+
+\graphicspath{{vis/}}
+
+\geometry{
+    a4paper,
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm
+}
+\setlength{\parindent}{1cm}
+\renewcommand{\baselinestretch}{1.2}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    % filecolor=magenta,
+    citecolor=magenta,
+    urlcolor=cyan,
+}
+
+\hypersetup{
+    pdfauthor={Ruslan Vasilev @artnitolog},
+    pdftitle={Калибровка уверенности}
+}
+
+% Перенастройки
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}  % многоточия в содержании
+\renewcommand{\appendixtocname}{Приложения}
+\renewcommand{\appendixname}{Приложения}
+\renewcommand{\appendixpagename}{Приложения}
+
+\usepackage[%
+    citestyle=numeric,
+    bibstyle=gost-numeric,
+    language=english,
+    autolang=other,
+    sorting=none,
+    movenames=false,
+    maxnames=4]{biblatex}
+
+% Не в этот раз!
+% \usepackage[style=numeric, sorting=none]{biblatex}
+% \addbibresource{refs.bib}
+% \usepackage{minted}
+% \usepackage{fancyhdr}
+% \usepackage{gensymb}
+% \usepackage{ntheorem}
+% \usepackage{mathtools}
+% \usepackage{titling}  
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+% \usepackage[justification=centering]{caption}
+% \usepackage{subcaption}
+% \newcommand{\mpl}[2]{
+%     \begin{figure}[!h]
+%         \includegraphics[width=0.98\textwidth]{#1}
+%         \centering
+%         \caption{#2}
+%         \label{fig:#1}
+%      \end{figure}
+% }
